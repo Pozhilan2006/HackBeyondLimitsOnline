@@ -1,0 +1,21 @@
+{
+  "name": "Hack Beyond Limits: Online Odyssey",
+  "short_name": "Hack Beyond",
+  "description": "A 48-hour global online hackathon featuring AI and Web3 domains",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0F1B",
+  "theme_color": "#3F00FF",
+  "icons": [
+    {
+      "src": "assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <style>
+    .text { font-family: 'Orbitron', sans-serif; font-weight: bold; }
+    .main-text { font-size: 24px; fill: #FFFFFF; }
+    .sub-text { font-size: 14px; fill: #00FFD1; }
+    .accent { fill: #FF00C8; }
+    .orbit { fill: none; stroke: #3F00FF; stroke-width: 2; }
+  </style>
+  <circle cx="30" cy="30" r="25" class="orbit" />
+  <circle cx="30" cy="30" r="15" fill="#151528" />
+  <circle cx="30" cy="30" r="10" fill="#0F0F1B" />
+  <circle cx="30" cy="30" r="5" class="accent" />
+  <text x="65" y="30" class="text main-text">HACK</text>
+  <text x="65" y="50" class="text sub-text">BEYOND LIMITS</text>
+  <path d="M30,5 A25,25 0 0,1 55,30" stroke="#00FFD1" stroke-width="2" fill="none" />
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="38" fill="#151528" stroke="#C0C0C0" stroke-width="3" />
+  <circle cx="40" cy="40" r="30" fill="none" stroke="#C0C0C0" stroke-width="2" />
+  <polygon points="40,15 45,30 60,30 48,40 53,55 40,45 27,55 32,40 20,30 35,30" fill="none" stroke="#C0C0C0" stroke-width="2" />
+  <text x="40" y="42" font-family="Arial" font-size="16" font-weight="bold" fill="#C0C0C0" text-anchor="middle">2</text>
+</svg>

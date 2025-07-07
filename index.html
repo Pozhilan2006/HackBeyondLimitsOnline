@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Beyond Limits: Online Odyssey</title>
+    <meta name="description" content="A 48-hour global online hackathon featuring AI and Web3 domains, organized by Tech Hub and conducted by Rathinam College of Arts and Science and Raise Smart.">
+    
+    <!-- Favicon and PWA -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3F00FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    
+    <!-- Three.js and Post-processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/FilmPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/FilmShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+    
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button"></div>
+                    <div class="terminal-button"></div>
+                    <div class="terminal-button"></div>
+                </div>
+                <div class="terminal-content">
+                    <div class="typing-text">Initializing Hack Beyond Limits...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Toggle -->
+    <div class="audio-toggle">
+        <div class="audio-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#hero">
+                    <img src="assets/images/logo.png" alt="Hack Beyond Limits Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#domains" class="nav-link">Domains</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
+                <a href="#prizes" class="nav-link">Prizes</a>
+                <a href="#sponsors" class="nav-link">Sponsors</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="register-btn">
+                <a href="#register" class="cta-button">Register Now</a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with WebGL/Three.js -->
+    <section id="hero" class="hero-section">
+        <div id="hero-canvas"></div>
+        
+        <!-- Parallax Layers -->
+        <div class="parallax-layer parallax-layer-1" data-depth="0.2">
+            <div class="floating-element" style="position: absolute; top: 15%; left: 10%; width: 50px; height: 50px; opacity: 0.3;">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,0 100,50 50,100 0,50" fill="rgba(0, 255, 209, 0.5)" />
+                </svg>
+            </div>
+            <div class="floating-element" style="position: absolute; top: 70%; left: 80%; width: 70px; height: 70px; opacity: 0.2;">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="40" fill="rgba(63, 0, 255, 0.5)" />
+                </svg>
+            </div>
+        </div>
+        
+        <div class="parallax-layer parallax-layer-2" data-depth="0.1">
+            <div class="floating-element" style="position: absolute; top: 30%; left: 85%; width: 40px; height: 40px; opacity: 0.3;">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="20" width="60" height="60" fill="rgba(255, 0, 200, 0.5)" />
+                </svg>
+            </div>
+            <div class="floating-element" style="position: absolute; top: 60%; left: 15%; width: 60px; height: 60px; opacity: 0.2;">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,15 75,40 60,90 40,90 25,40" fill="rgba(0, 255, 209, 0.5)" />
+                </svg>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="glitch-text" data-text="Hack Beyond Limits">Hack Beyond Limits</h1>
+            <h2 class="subtitle neon-text">Online Odyssey</h2>
+            <div class="hero-description">
+                <p class="typing-animation">A 48-hour journey into the future of technology</p>
+            </div>
+            <div class="hero-details animated-gradient-bg">
+                <div class="detail-item">
+                    <div class="detail-icon floating-element">
+                        <img src="assets/images/calendar-icon.svg" alt="Calendar">
+                    </div>
+                    <div class="detail-text">48 Hours</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon floating-element">
+                        <img src="assets/images/location-icon.svg" alt="Location">
+                    </div>
+                    <div class="detail-text">Global Online Event</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#register" class="orbit-button primary holographic-card">Register Now</a>
+                <a href="#domains" class="orbit-button secondary holographic-card">Explore Domains</a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="scroll-text">Scroll to Explore</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">About the Hackathon</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to <span class="highlight">Hack Beyond Limits: Online Odyssey</span>, a groundbreaking 48-hour global hackathon that transcends traditional boundaries of innovation and collaboration.</p>
+                    <p>Conducted by <span class="highlight">Rathinam College of Arts and Science</span> and <span class="highlight">Raise Smart</span>, organized by <span class="highlight">Tech Hub</span>, this event invites brilliant minds from around the world to create, innovate, and push technology to new frontiers.</p>
+                    <p>Whether you're a coding wizard, a design genius, or a visionary thinker, this is your opportunity to join forces with like-minded innovators and build solutions that could shape our digital future.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="48">0</div>
+                        <div class="stat-label">Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="2">0</div>
+                        <div class="stat-label">Domains</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="∞">0</div>
+                        <div class="stat-label">Possibilities</div>
+                    </div>
+                </div>
+            </div>
+            <div class="organizers">
+                <h3>Organized By</h3>
+                <div class="organizer-logos">
+                    <div class="organizer-logo">
+                        <img src="assets/images/tech-hub-logo.png" alt="Tech Hub Logo">
+                        <span>Tech Hub</span>
+                    </div>
+                </div>
+                <h3>Conducted By</h3>
+                <div class="organizer-logos">
+                    <div class="organizer-logo">
+                        <img src="assets/images/rathinam-logo.png" alt="Rathinam College Logo">
+                        <span>Rathinam College of Arts and Science</span>
+                    </div>
+                    <div class="organizer-logo">
+                        <img src="assets/images/raise-smart-logo.png" alt="Raise Smart Logo">
+                        <span>Raise Smart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section id="domains" class="domains-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Hackathon Domains">Hackathon Domains</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="domains-container">
+                <div class="domain-card holographic-card card-hover-effect" data-domain="ai">
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <div class="domain-icon floating-element">
+                                <img src="assets/images/ai-icon.svg" alt="AI Domain">
+                            </div>
+                            <h3 class="domain-title neon-text">Artificial Intelligence</h3>
+                            <div class="flip-prompt">Click to explore</div>
+                        </div>
+                        <div class="domain-card-back">
+                            <h3 class="domain-title neon-text">Artificial Intelligence</h3>
+                            <p class="domain-description">Develop cutting-edge AI solutions that push the boundaries of machine learning, natural language processing, computer vision, and more. Create intelligent systems that can learn, adapt, and solve complex problems.</p>
+                            <ul class="domain-examples">
+                                <li>Generative AI Applications</li>
+                                <li>Predictive Analytics</li>
+                                <li>Computer Vision Solutions</li>
+                                <li>NLP & Conversational AI</li>
+                                <li>AI for Social Good</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card holographic-card card-hover-effect" data-domain="web3">
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <div class="domain-icon floating-element">
+                                <img src="assets/images/web3-icon.svg" alt="Web3 Domain">
+                            </div>
+                            <h3 class="domain-title neon-text">Web3</h3>
+                            <div class="flip-prompt">Click to explore</div>
+                        </div>
+                        <div class="domain-card-back">
+                            <h3 class="domain-title neon-text">Web3</h3>
+                            <p class="domain-description">Build decentralized applications and services that leverage blockchain technology, smart contracts, and tokenomics. Create solutions that empower users with ownership, privacy, and control over their digital assets and identity.</p>
+                            <ul class="domain-examples">
+                                <li>DeFi Applications</li>
+                                <li>NFT Platforms</li>
+                                <li>DAO Governance Tools</li>
+                                <li>Decentralized Identity</li>
+                                <li>Web3 Social Platforms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section section-transition animated-gradient-bg">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Event Timeline">Event Timeline</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item card-hover-effect">
+                    <div class="timeline-dot floating-element"></div>
+                    <div class="timeline-date neon-text">Day 1</div>
+                    <div class="timeline-content holographic-card">
+                        <h3 class="typing-animation">Kickoff & Team Formation</h3>
+                        <ul>
+                            <li><span class="time">10:00 AM</span> Opening Ceremony</li>
+                            <li><span class="time">11:00 AM</span> Problem Statement Reveal</li>
+                            <li><span class="time">12:00 PM</span> Team Registration Deadline</li>
+                            <li><span class="time">01:00 PM</span> Hacking Begins</li>
+                            <li><span class="time">04:00 PM</span> Workshop: AI Tools & Techniques</li>
+                            <li><span class="time">07:00 PM</span> Workshop: Web3 Development</li>
+                            <li><span class="time">10:00 PM</span> Day 1 Check-in</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item card-hover-effect">
+                    <div class="timeline-dot floating-element"></div>
+                    <div class="timeline-date neon-text">Day 2</div>
+                    <div class="timeline-content holographic-card">
+                        <h3 class="typing-animation">Development & Mentorship</h3>
+                        <ul>
+                            <li><span class="time">09:00 AM</span> Morning Check-in</li>
+                            <li><span class="time">10:00 AM</span> Mentor Sessions Begin</li>
+                            <li><span class="time">02:00 PM</span> Mid-Hackathon Review</li>
+                            <li><span class="time">04:00 PM</span> Technical Talk: Future of AI & Web3</li>
+                            <li><span class="time">08:00 PM</span> Entertainment Break</li>
+                            <li><span class="time">09:00 PM</span> Night Hacking Continues</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item card-hover-effect">
+                    <div class="timeline-dot floating-element"></div>
+                    <div class="timeline-date neon-text">Day 3</div>
+                    <div class="timeline-content holographic-card">
+                        <h3 class="typing-animation">Finalization & Judging</h3>
+                        <ul>
+                            <li><span class="time">09:00 AM</span> Final Check-in</li>
+                            <li><span class="time">12:00 PM</span> Code Freeze</li>
+                            <li><span class="time">01:00 PM</span> Submission Deadline</li>
+                            <li><span class="time">02:00 PM</span> Project Presentations Begin</li>
+                            <li><span class="time">05:00 PM</span> Judging Period</li>
+                            <li><span class="time">07:00 PM</span> Winners Announcement</li>
+                            <li><span class="time">08:00 PM</span> Closing Ceremony</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="prizes-section section-transition">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Prizes & Rewards">Prizes & Rewards</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="prizes-container">
+                <div class="prize-card first holographic-card card-hover-effect">
+                    <div class="prize-medal floating-element">
+                        <img src="assets/images/first-prize.svg" alt="First Prize">
+                    </div>
+                    <h3 class="prize-title neon-text">First Prize</h3>
+                    <div class="prize-amount glitch-text" data-text="$5,000">$5,000</div>
+                    <div class="prize-extras">
+                        <p>+ Mentorship Opportunities</p>
+                        <p>+ Incubation Support</p>
+                        <p>+ Exclusive NFT Badge</p>
+                    </div>
+                </div>
+                <div class="prize-card second holographic-card card-hover-effect">
+                    <div class="prize-medal floating-element">
+                        <img src="assets/images/second-prize.svg" alt="Second Prize">
+                    </div>
+                    <h3 class="prize-title neon-text">Second Prize</h3>
+                    <div class="prize-amount glitch-text" data-text="$3,000">$3,000</div>
+                    <div class="prize-extras">
+                        <p>+ Cloud Credits</p>
+                        <p>+ Development Resources</p>
+                        <p>+ Exclusive NFT Badge</p>
+                    </div>
+                </div>
+                <div class="prize-card third holographic-card card-hover-effect">
+                    <div class="prize-medal floating-element">
+                        <img src="assets/images/third-prize.svg" alt="Third Prize">
+                    </div>
+                    <h3 class="prize-title neon-text">Third Prize</h3>
+                    <div class="prize-amount glitch-text" data-text="$1,500">$1,500</div>
+                    <div class="prize-extras">
+                        <p>+ Premium Subscriptions</p>
+                        <p>+ Learning Resources</p>
+                        <p>+ Exclusive NFT Badge</p>
+                    </div>
+                </div>
+            </div>
+            <div class="special-prizes">
+                <h3>Special Category Awards</h3>
+                <div class="special-prizes-container">
+                    <div class="special-prize">
+                        <div class="special-prize-icon">
+                            <img src="assets/images/innovation-icon.svg" alt="Most Innovative">
+                        </div>
+                        <h4>Most Innovative Solution</h4>
+                        <p>$1,000 + Innovation Lab Access</p>
+                    </div>
+                    <div class="special-prize">
+                        <div class="special-prize-icon">
+                            <img src="assets/images/impact-icon.svg" alt="Social Impact">
+                        </div>
+                        <h4>Best Social Impact</h4>
+                        <p>$1,000 + Impact Partner Connections</p>
+                    </div>
+                    <div class="special-prize">
+                        <div class="special-prize-icon">
+                            <img src="assets/images/design-icon.svg" alt="Best Design">
+                        </div>
+                        <h4>Best UI/UX Design</h4>
+                        <p>$1,000 + Design Tool Licenses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="sponsors-section section-transition">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Our Sponsors">Our Sponsors</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="sponsors-tier platinum">
+                <h3 class="tier-title neon-text">Platinum Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-card holographic-card card-hover-effect">
+                        <img src="assets/images/sponsor1.png" alt="Sponsor 1" class="floating-element">
+                    </div>
+                    <div class="sponsor-card holographic-card card-hover-effect">
+                        <img src="assets/images/sponsor2.png" alt="Sponsor 2" class="floating-element">
+                    </div>
+                </div>
+            </div>
+            <div class="sponsors-tier gold">
+                <h3 class="tier-title neon-text">Gold Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-card holographic-card card-hover-effect">
+                        <img src="assets/images/sponsor3.png" alt="Sponsor 3" class="floating-element">
+                    </div>
+                    <div class="sponsor-card holographic-card card-hover-effect">
+                        <img src="assets/images/sponsor4.png" alt="Sponsor 4" class="floating-element">
+                    </div>
+                    <div class="sponsor-card holographic-card card-hover-effect">
+                        <img src="assets/images/sponsor5.png" alt="Sponsor 5" class="floating-element">
+                    </div>
+                </div>
+            </div>
+            <div class="sponsors-tier silver">
+                <h3 class="tier-title">Silver Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsor6.png" alt="Sponsor 6">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsor7.png" alt="Sponsor 7">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsor8.png" alt="Sponsor 8">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="assets/images/sponsor9.png" alt="Sponsor 9">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section section-transition animated-gradient-bg">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Frequently Asked Questions">Frequently Asked Questions</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item card-hover-effect holographic-card">
+                    <div class="faq-question">
+                        <h3 class="neon-text">Who can participate in the hackathon?</h3>
+                        <div class="faq-toggle floating-element">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anyone with a passion for technology can participate! Whether you're a student, professional, or enthusiast, as long as you're 18+ years old, you're welcome to join. Teams can consist of 2-4 members.</p>
+                    </div>
+                </div>
+                <div class="faq-item card-hover-effect holographic-card">
+                    <div class="faq-question">
+                        <h3 class="neon-text">Is there a registration fee?</h3>
+                        <div class="faq-toggle floating-element">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, participation in Hack Beyond Limits is completely free! We believe in making innovation accessible to everyone.</p>
+                    </div>
+                </div>
+                <div class="faq-item card-hover-effect holographic-card">
+                    <div class="faq-question">
+                        <h3 class="neon-text">What if I don't have a team?</h3>
+                        <div class="faq-toggle floating-element">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No worries! We'll have a team formation session at the beginning of the event where you can meet other participants and form teams. You can also use our Discord channel to connect with potential teammates before the event.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I bring to the hackathon?</h3>
+                        <div class="faq-toggle">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Since this is an online event, you'll need a computer with a stable internet connection, any software you plan to use, and your creativity! Make sure you have a comfortable setup as you'll be coding for 48 hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I start working on my project before the hackathon?</h3>
+                        <div class="faq-toggle">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, all projects must be started and developed during the 48-hour hackathon period. You can brainstorm ideas beforehand, but no coding or design work should be done until the official start.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How will projects be judged?</h3>
+                        <div class="faq-toggle">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Projects will be evaluated based on innovation, technical complexity, practical implementation, user experience, and presentation. Our panel of judges includes industry experts from the AI and Web3 domains.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="register-section section-transition animated-gradient-bg">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title glitch-text" data-text="Register Now">Register Now</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="register-content">
+                <div class="register-text">
+                    <p>Ready to embark on this 48-hour journey of innovation and creativity? Register now to secure your spot in Hack Beyond Limits: Online Odyssey!</p>
+                    <p>Early registrants will receive exclusive digital badges and priority access to mentorship sessions.</p>
+                </div>
+                <div class="register-form-container holographic-card">
+                    <form id="registration-form" class="register-form">
+                        <div class="form-group">
+                            <label for="name" class="neon-text">Full Name</label>
+                            <input type="text" id="name" name="name" required class="card-hover-effect">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="neon-text">Email Address</label>
+                            <input type="email" id="email" name="email" required class="card-hover-effect">
+                        </div>
+                        <div class="form-group">
+                            <label for="institution" class="neon-text">Institution/Organization</label>
+                            <input type="text" id="institution" name="institution" required class="card-hover-effect">
+                        </div>
+                        <div class="form-group">
+                            <label for="experience" class="neon-text">Experience Level</label>
+                            <select id="experience" name="experience" required class="card-hover-effect">
+                                <option value="">Select your experience</option>
+                                <option value="beginner">Beginner (0-1 years)</option>
+                                <option value="intermediate">Intermediate (1-3 years)</option>
+                                <option value="advanced">Advanced (3+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="domain" class="neon-text">Preferred Domain</label>
+                            <select id="domain" name="domain" required class="card-hover-effect">
+                                <option value="">Select your preferred domain</option>
+                                <option value="ai">Artificial Intelligence</option>
+                                <option value="web3">Web3</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-status" class="neon-text">Team Status</label>
+                            <select id="team-status" name="team-status" required class="card-hover-effect">
+                                <option value="">Select your team status</option>
+                                <option value="have-team">I have a team</option>
+                                <option value="looking-for-team">Looking for team members</option>
+                                <option value="join-team">Want to join a team</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="motivation" class="neon-text">What motivates you to join this hackathon? (100 words max)</label>
+                            <textarea id="motivation" name="motivation" rows="4" maxlength="500" required class="card-hover-effect"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="terms-link neon-text">Terms and Conditions</a></label>
+                        </div>
+                        <button type="submit" class="submit-button holographic-card">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Participants Map -->
+    <section id="participants-map" class="map-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Global Participation</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="map-container">
+                <div id="world-map"></div>
+                <div class="map-stats">
+                    <div class="map-stat">
+                        <div class="stat-number" data-count="500">0</div>
+                        <div class="stat-label">Participants</div>
+                    </div>
+                    <div class="map-stat">
+                        <div class="stat-number" data-count="42">0</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="map-stat">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Teams</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Copilot Assistant -->
+    <div class="ai-assistant">
+        <div class="ai-assistant-toggle">
+            <div class="ai-icon">
+                <img src="assets/images/ai-assistant-icon.svg" alt="AI Assistant">
+            </div>
+        </div>
+        <div class="ai-assistant-container">
+            <div class="ai-assistant-header">
+                <div class="ai-assistant-title">Hackathon Assistant</div>
+                <div class="ai-assistant-close">×</div>
+            </div>
+            <div class="ai-assistant-messages">
+                <div class="ai-message">
+                    <div class="ai-avatar">
+                        <img src="assets/images/ai-avatar.svg" alt="AI Avatar">
+                    </div>
+                    <div class="message-content">
+                        Hello! I'm your Hackathon Assistant. How can I help you with Hack Beyond Limits: Online Odyssey?
+                    </div>
+                </div>
+            </div>
+            <div class="ai-assistant-input">
+                <input type="text" placeholder="Ask me anything about the hackathon...">
+                <button class="ai-send-btn">
+                    <img src="assets/images/send-icon.svg" alt="Send">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer section-transition animated-gradient-bg">
+        <div class="footer-container">
+            <div class="footer-logo floating-element">
+                <img src="assets/images/logo.png" alt="Hack Beyond Limits Logo">
+            </div>
+            <div class="footer-links holographic-card">
+                <div class="footer-links-column">
+                    <h3 class="neon-text">Quick Links</h3>
+                    <a href="#about" class="card-hover-effect">About</a>
+                    <a href="#domains" class="card-hover-effect">Domains</a>
+                    <a href="#schedule" class="card-hover-effect">Schedule</a>
+                    <a href="#prizes" class="card-hover-effect">Prizes</a>
+                    <a href="#sponsors" class="card-hover-effect">Sponsors</a>
+                    <a href="#faq" class="card-hover-effect">FAQ</a>
+                </div>
+                <div class="footer-links-column">
+                    <h3 class="neon-text">Resources</h3>
+                    <a href="#" class="card-hover-effect">Starter Kits</a>
+                    <a href="#" class="card-hover-effect">Documentation</a>
+                    <a href="#" class="card-hover-effect">API References</a>
+                    <a href="#" class="card-hover-effect">Code of Conduct</a>
+                </div>
+                <div class="footer-links-column">
+                    <h3 class="neon-text">Connect</h3>
+                    <a href="#" class="social-link card-hover-effect">
+                        <img src="assets/images/discord-icon.svg" alt="Discord" class="floating-element">
+                        <span>Discord</span>
+                    </a>
+                    <a href="#" class="social-link card-hover-effect">
+                        <img src="assets/images/twitter-icon.svg" alt="Twitter" class="floating-element">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link card-hover-effect">
+                        <img src="assets/images/linkedin-icon.svg" alt="LinkedIn" class="floating-element">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link card-hover-effect">
+                        <img src="assets/images/github-icon.svg" alt="GitHub" class="floating-element">
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-contact holographic-card">
+                <h3 class="neon-text">Contact Us</h3>
+                <a href="mailto:info@hackbeyondlimits.com" class="card-hover-effect">info@hackbeyondlimits.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright glitch-text" data-text="&copy; 2023 Hack Beyond Limits: Online Odyssey. All rights reserved.">
+                &copy; 2023 Hack Beyond Limits: Online Odyssey. All rights reserved.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#" class="card-hover-effect">Privacy Policy</a>
+                <a href="#" class="card-hover-effect">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden Easter Eggs -->
+    <div class="easter-eggs">
+        <div class="easter-egg" data-id="egg1">
+            <div class="egg-content">
+                <h3>You found a secret!</h3>
+                <p>Use code EARLYBIRD for priority mentorship access</p>
+            </div>
+        </div>
+        <div class="easter-egg" data-id="egg2">
+            <div class="egg-content">
+                <h3>Hidden Challenge Unlocked!</h3>
+                <p>Solve the puzzle at /secret-challenge to earn bonus points</p>
+            </div>
+        </div>
+        <div class="easter-egg" data-id="egg3">
+            <div class="egg-content">
+                <h3>Special Access Granted!</h3>
+                <p>You've unlocked exclusive workshop materials</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Assistant -->
+    <div class="ai-assistant" id="ai-assistant">
+        <img src="images/ai-icon.svg" alt="AI Assistant" class="ai-assistant-icon">
+    </div>
+    
+    <div class="ai-chat-window" id="ai-chat-window">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <img src="images/ai-icon.svg" alt="AI" width="20" height="20">
+                <span>Hack Assistant</span>
+            </div>
+            <div class="ai-chat-close" id="ai-chat-close">×</div>
+        </div>
+        <div class="ai-chat-messages" id="ai-chat-messages">
+            <div class="ai-message bot">
+                Hello! I'm your Hack Beyond Limits assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="ai-chat-input-field" placeholder="Ask me anything...">
+            <div class="ai-chat-send" id="ai-chat-send">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <div class="audio-toggle" id="audio-toggle">
+            <svg class="audio-icon audio-on" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.54 8.46C16.4774 9.39764 17.004 10.6692 17.004 11.995C17.004 13.3208 16.4774 14.5924 15.54 15.53" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.07 4.93C20.9447 6.80528 21.9979 9.34836 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="audio-icon audio-off" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 9L17 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 9L23 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script src="js/easter-eggs.js"></script>
+    <script src="js/world-map.js"></script>
+    <script src="js/audio-controller.js"></script>
+    <script src="js/custom-cursor.js"></script>
+    <script src="js/scroll-effects.js"></script>
+    <script src="js/background-particles.js"></script>
+    <script src="js/countdown-timer.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
