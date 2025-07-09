@@ -1,5 +1,17 @@
 /* Responsive Styles for Hack Beyond Limits: Online Odyssey */
 
+/* RCAS Logo Responsive Styles */
+.rcas-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.rcas-logo img {
+    max-width: 200px;
+    height: auto;
+}
+
 /* Large Desktops (1200px and up) */
 @media (min-width: 1200px) {
     .section-container {
@@ -11,6 +23,10 @@
 @media (max-width: 1199px) {
     .section-container {
         max-width: 960px;
+    }
+    
+    .rcas-logo img {
+        max-width: 180px;
     }
     
     h1 {
@@ -35,7 +51,8 @@
     
     .domain-card {
         width: 300px;
-        height: 380px;
+        min-height: 380px;
+        height: auto;
     }
     
     .prize-card {
@@ -52,6 +69,10 @@
     .section-container {
         max-width: 720px;
         padding: var(--space-md);
+    }
+    
+    .rcas-logo img {
+        max-width: 160px;
     }
     
     h1 {
@@ -136,17 +157,20 @@
     
     .domain-card {
         width: 280px;
-        height: 360px;
+        min-height: 360px;
+        height: auto;
     }
     
     .domain-description {
         font-size: 1.5rem;
-        max-height: 120px;
+        height: auto;
+        overflow: visible;
     }
     
     .domain-examples {
         font-size: 1.3rem;
-        max-height: 100px;
+        height: auto;
+        overflow: visible;
     }
     
     .timeline::before {
@@ -226,6 +250,10 @@
         padding: var(--space-sm);
     }
     
+    .rcas-logo img {
+        max-width: 140px;
+    }
+    
     h1 {
         font-size: 3.5rem;
     }
@@ -271,7 +299,8 @@
     .domain-card {
         width: 100%;
         max-width: 300px;
-        height: 340px;
+        min-height: 340px;
+        height: auto;
         margin: 0 auto;
     }
     
@@ -281,12 +310,14 @@
     
     .domain-description {
         font-size: 1.4rem;
-        max-height: 100px;
+        height: auto;
+        overflow: visible;
     }
-    
+
     .domain-examples {
         font-size: 1.2rem;
-        max-height: 90px;
+        height: auto;
+        overflow: visible;
     }
     
     .prizes-container {
@@ -358,6 +389,10 @@
 
 /* Mobile Portrait (up to 575px) */
 @media (max-width: 575px) {
+    .rcas-logo img {
+        max-width: 120px;
+    }
+    
     h1 {
         font-size: 3rem;
     }

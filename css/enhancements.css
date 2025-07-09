@@ -74,12 +74,14 @@
 }
 
 /* Enhanced Hover Effects for Cards */
+/* Card hover effects modified to keep domain cards static */
 .card-hover-effect {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: translateZ(0);
     backface-visibility: hidden;
 }
 
+/* Domain cards no longer use this class, but keeping it for other elements */
 .card-hover-effect:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), 
@@ -87,28 +89,26 @@
 }
 
 .card-hover-effect::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(63, 0, 255, 0.2), 
-        rgba(0, 255, 209, 0.2));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    border-radius: inherit;
+    content: none;
 }
 
 .card-hover-effect:hover::before {
-    opacity: 1;
+    opacity: 0;
 }
 
-/* Floating Elements Animation */
+/* Floating Elements Animation - Disabled for timeline */
 .floating-element {
+    animation: none;
+}
+
+/* Re-enable floating for non-timeline elements */
+.hero-section .floating-element {
     animation: float 6s ease-in-out infinite;
+}
+
+/* Disabled floating animation for domain cards */
+.domains-section .floating-element {
+    animation: none;
 }
 
 @keyframes float {
@@ -177,92 +177,58 @@
     }
 }
 
-/* Neon Text Effect */
+/* Neon Text Effect - Removed */
 .neon-text {
     color: #fff;
-    text-shadow: 
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 15px #00ffd1,
-        0 0 20px #00ffd1;
-    animation: neon-pulse 3s ease-in-out infinite alternate;
+    text-shadow: none;
+    animation: none;
 }
 
 @keyframes neon-pulse {
-    from {
-        text-shadow: 
-            0 0 5px #fff,
-            0 0 10px #fff,
-            0 0 20px #00ffd1,
-            0 0 30px #00ffd1,
-            0 0 40px #00ffd1,
-            0 0 55px #00ffd1,
-            0 0 75px #00ffd1;
-    }
-    to {
-        text-shadow: 
-            0 0 2.5px #fff,
-            0 0 5px #fff,
-            0 0 10px #00ffd1,
-            0 0 15px #00ffd1,
-            0 0 20px #00ffd1,
-            0 0 27.5px #00ffd1,
-            0 0 37.5px #00ffd1;
+    from, to {
+        text-shadow: none;
     }
 }
 
-/* Holographic Card Effect */
+/* Holographic Card Effect - Glare Removed */
 .holographic-card {
     position: relative;
     overflow: hidden;
-    transition: all 0.5s ease;
+    /* Removed transitions */
 }
 
 .holographic-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.1) 45%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0.1) 55%,
-        transparent 100%
-    );
-    transform: rotate(30deg);
-    transition: all 0.5s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    transform: none;
+    transition: none;
     opacity: 0;
     z-index: 1;
     pointer-events: none;
 }
 
-.holographic-card:hover::before {
-    animation: holographic-sweep 1.5s ease-in-out infinite;
-    opacity: 1;
+/* Removed hover effects */
+    opacity: 0;
 }
 
 @keyframes holographic-sweep {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(50%, 50%) rotate(30deg);
+    0%, 100% {
+        transform: none;
     }
 }
 
-/* Typing Animation */
+/* Typing Animation - removed blinking caret */
 .typing-animation {
     overflow: hidden;
-    border-right: 2px solid var(--color-accent-tertiary);
     white-space: nowrap;
     margin: 0 auto;
     animation: 
-        typing 3.5s steps(40, end),
-        blink-caret 0.75s step-end infinite;
+        typing 3.5s steps(40, end);
 }
 
 @keyframes typing {

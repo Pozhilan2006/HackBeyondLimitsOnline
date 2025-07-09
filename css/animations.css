@@ -17,14 +17,9 @@
     50% { opacity: 0; }
 }
 
-/* Typing cursor style */
+/* Typing cursor style - disabled to prevent blinking cursor */
 .typing-cursor {
-    display: inline-block;
-    font-size: 1.2em;
-    color: #00FFD1;
-    margin-left: 2px;
-    vertical-align: middle;
-    animation: cursorBlink 1s infinite;
+    display: none;
 }
 
 /* Terminal Glitch Animation */
@@ -55,42 +50,25 @@
     }
 }
 
-/* Glitch Effect */
+/* Glitch Effect - Simplified without glow */
 @keyframes glitch {
     0% {
-        text-shadow: 0.03em 0 0 rgba(255, 0, 200, 0.4),
-                    -0.03em -0.015em 0 rgba(0, 255, 209, 0.4),
-                    -0.015em 0.03em 0 rgba(63, 0, 255, 0.4);
+        transform: translate(0);
     }
-    14% {
-        text-shadow: 0.03em 0 0 rgba(255, 0, 200, 0.4),
-                    -0.03em -0.015em 0 rgba(0, 255, 209, 0.4),
-                    -0.015em 0.03em 0 rgba(63, 0, 255, 0.4);
+    20% {
+        transform: translate(-2px, 2px);
     }
-    15% {
-        text-shadow: -0.03em -0.015em 0 rgba(255, 0, 200, 0.4),
-                    0.015em 0.015em 0 rgba(0, 255, 209, 0.4),
-                    -0.03em -0.03em 0 rgba(63, 0, 255, 0.4);
+    40% {
+        transform: translate(-2px, -2px);
     }
-    49% {
-        text-shadow: -0.03em -0.015em 0 rgba(255, 0, 200, 0.4),
-                    0.015em 0.015em 0 rgba(0, 255, 209, 0.4),
-                    -0.03em -0.03em 0 rgba(63, 0, 255, 0.4);
+    60% {
+        transform: translate(2px, 2px);
     }
-    50% {
-        text-shadow: 0.015em 0.03em 0 rgba(255, 0, 200, 0.4),
-                    0.03em 0 0 rgba(0, 255, 209, 0.4),
-                    0 -0.03em 0 rgba(63, 0, 255, 0.4);
-    }
-    99% {
-        text-shadow: 0.015em 0.03em 0 rgba(255, 0, 200, 0.4),
-                    0.03em 0 0 rgba(0, 255, 209, 0.4),
-                    0 -0.03em 0 rgba(63, 0, 255, 0.4);
+    80% {
+        transform: translate(2px, -2px);
     }
     100% {
-        text-shadow: -0.015em 0 0 rgba(255, 0, 200, 0.4),
-                    -0.015em -0.015em 0 rgba(0, 255, 209, 0.4),
-                    -0.015em -0.03em 0 rgba(63, 0, 255, 0.4);
+        transform: translate(0);
     }
 }
 
@@ -454,22 +432,15 @@
     animation: gradientText 6s ease infinite;
 }
 
-/* Neon Glow Animation */
+/* Neon Glow Animation - Removed */
 @keyframes neonGlow {
-    0%, 100% {
-        text-shadow: 0 0 10px rgba(0, 255, 209, 0.7),
-                    0 0 20px rgba(0, 255, 209, 0.5),
-                    0 0 30px rgba(0, 255, 209, 0.3);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(0, 255, 209, 0.9),
-                    0 0 30px rgba(0, 255, 209, 0.7),
-                    0 0 40px rgba(0, 255, 209, 0.5);
+    0%, 50%, 100% {
+        text-shadow: none;
     }
 }
 
 .neon-glow {
-    animation: neonGlow 2s ease-in-out infinite;
+    animation: none;
 }
 
 /* Hover Animations */

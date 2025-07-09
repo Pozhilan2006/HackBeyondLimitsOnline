@@ -42,11 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let charIndex = 0;
             const typingSpeed = 70; // milliseconds per character
             
-            // Add cursor element
-            const cursor = document.createElement('span');
-            cursor.className = 'typing-cursor';
-            cursor.innerHTML = '_';
-            typingText.parentNode.appendChild(cursor);
+            // Cursor element removed to prevent blinking cursor
             
             // Typewriter effect
             function typeWriter() {
@@ -58,10 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Add flicker effect after typing completes
                     typingText.classList.add('flicker');
                     
-                    // Add blinking cursor effect
-                    setInterval(() => {
-                        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-                    }, 500);
+                    // Blinking cursor effect removed
                     
                     // Hide preloader after extended delay to ensure users can read the text
                     setTimeout(() => {
@@ -240,20 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Domain cards parallax
+        // Domain card scroll animations disabled as requested
         const domainCards = document.querySelectorAll('.domain-card');
         
-        domainCards.forEach((card, index) => {
-            gsap.to(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                },
-                y: index % 2 === 0 ? 30 : -30,
-                ease: "none"
-            });
-        });
+        // No animations applied to keep cards static
     }
     
     // Initialize counter animations
@@ -477,108 +460,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const domainCards = document.querySelectorAll('.domain-card');
         
         domainCards.forEach(card => {
-            // Enhanced click flip animation
-            card.addEventListener('click', () => {
-                card.querySelector('.domain-card-inner').classList.toggle('flipped');
-                
-                // Add sound effect if audio is enabled
-                if (window.audioEnabled && window.audioController) {
-                    window.audioController.playSound('flip');
-                }
-            });
+            // All hover effects and animations removed as requested
+            // Cards are now static with no rotation, no hover sparkle, and no glow
             
-            // Holographic effect on mouse move
-            card.addEventListener('mousemove', (e) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenterX = cardRect.left + cardRect.width / 2;
-                const cardCenterY = cardRect.top + cardRect.height / 2;
-                
-                // Calculate mouse position relative to card center
-                const mouseX = e.clientX - cardCenterX;
-                const mouseY = e.clientY - cardCenterY;
-                
-                // Calculate rotation based on mouse position
-                const rotateY = mouseX / 10;
-                const rotateX = -mouseY / 10;
-                
-                // Apply rotation to card
-                const cardInner = card.querySelector('.domain-card-inner');
-                if (!cardInner.classList.contains('flipped')) {
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-                    
-                    // Adjust highlight position based on mouse
-                    const frontHighlight = card.querySelector('.domain-card-front::after');
-                    if (frontHighlight) {
-                        const highlightX = (e.clientX - cardRect.left) / cardRect.width * 100;
-                        const highlightY = (e.clientY - cardRect.top) / cardRect.height * 100;
-                        frontHighlight.style.backgroundPosition = `${highlightX}% ${highlightY}%`;
-                    }
-                }
-            });
+            // Remove any existing event listeners
+            card.removeEventListener('mousemove', () => {});
+            card.removeEventListener('mouseleave', () => {});
             
-            // Reset card position on mouse leave
-            card.addEventListener('mouseleave', () => {
-                if (!card.querySelector('.domain-card-inner').classList.contains('flipped')) {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-                }
-            });
-            
-            // Add particle effects on hover
-            card.addEventListener('mouseenter', () => {
-                // Create particle burst effect
-                createParticleBurst(card);
-            });
+            // Ensure cards are displayed in their default state
+            card.style.transform = 'none';
         });
-        
-        // Function to create particle burst effect
-        function createParticleBurst(element) {
-            const particleCount = 20;
-            const colors = ['#3F00FF', '#FF00C8', '#00FFD1'];
-            const rect = element.getBoundingClientRect();
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'card-particle';
-                
-                // Random position around the card
-                const x = rect.left + rect.width / 2;
-                const y = rect.top + rect.height / 2;
-                
-                // Random size
-                const size = Math.random() * 8 + 4;
-                
-                // Random color
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Set particle styles
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.background = color;
-                particle.style.boxShadow = `0 0 ${size}px ${color}`;
-                particle.style.left = `${x}px`;
-                particle.style.top = `${y}px`;
-                
-                // Add to body
-                document.body.appendChild(particle);
-                
-                // Animate particle
-                const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 100 + 50;
-                const vx = Math.cos(angle) * speed;
-                const vy = Math.sin(angle) * speed;
-                
-                // Use GSAP for smooth animation
-                gsap.to(particle, {
-                    x: vx,
-                    y: vy,
-                    opacity: 0,
-                    duration: Math.random() * 1 + 0.5,
-                    onComplete: () => {
-                        document.body.removeChild(particle);
-                    }
-                });
-            }
-        }
+            // Particle effects on hover removed as requested
+        });
     }
     
     // FAQ accordion

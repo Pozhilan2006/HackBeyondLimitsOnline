@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/enhancements.css">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Three.js and Post-processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
@@ -71,7 +74,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="#hero">
-                    <img src="assets/images/logo.png" alt="Hack Beyond Limits Logo">
+                    <img src="assets\images\logo.png" alt="Hack Beyond Limits Logo">
                 </a>
             </div>
             <div class="nav-links">
@@ -134,6 +137,10 @@
         </div>
         
         <div class="hero-content">
+            <!-- RCAS Logo added above the heading -->
+            <div class="rcas-logo">
+                <img src="images/RCAS Logo HD.jpg" alt="Rathinam College of Arts and Science Logo" style="max-width: 200px; margin-bottom: 20px;">
+            </div>
             <h1 class="glitch-text" data-text="Hack Beyond Limits">Hack Beyond Limits</h1>
             <div class="season-label">Season 2</div>
             <h2 class="subtitle neon-text">Online Odyssey</h2>
@@ -173,20 +180,7 @@
                     <p>Conducted by <span class="highlight">Rathinam College of Arts and Science</span> and <span class="highlight">Raise Smart</span>, organized by <span class="highlight">Tech Hub</span>, this event invites brilliant minds from around the world to create, innovate, and push technology to new frontiers.</p>
                     <p>Whether you're a coding wizard, a design genius, or a visionary thinker, this is your opportunity to join forces with like-minded innovators and build solutions that could shape our digital future.</p>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number" data-count="48">0</div>
-                        <div class="stat-label">Hours</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-count="2">0</div>
-                        <div class="stat-label">Domains</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-count="∞">0</div>
-                        <div class="stat-label">Possibilities</div>
-                    </div>
-                </div>
+
             </div>
             <div class="organizers">
                 <h3>Organized By</h3>
@@ -216,48 +210,36 @@
                 <div class="section-divider"></div>
             </div>
             <div class="domains-container">
-                <div class="domain-card holographic-card card-hover-effect" data-domain="ai">
-                    <div class="domain-card-inner">
-                        <div class="domain-card-front">
-                            <div class="domain-icon floating-element">
-                                <img src="assets/images/ai-icon.svg" alt="AI Domain">
-                            </div>
-                            <h3 class="domain-title neon-text">Artificial Intelligence</h3>
-                            <div class="flip-prompt">Click to explore</div>
+                <div class="domain-card holographic-card" data-domain="ai">
+                    <div class="domain-card-content">
+                        <div class="domain-icon">
+                            <img src="assets/images/ai-icon.svg" alt="AI Domain">
                         </div>
-                        <div class="domain-card-back">
-                            <h3 class="domain-title neon-text">Artificial Intelligence</h3>
-                            <p class="domain-description">Develop cutting-edge AI solutions that push the boundaries of machine learning, natural language processing, computer vision, and more. Create intelligent systems that can learn, adapt, and solve complex problems.</p>
-                            <ul class="domain-examples">
-                                <li>Generative AI Applications</li>
-                                <li>Predictive Analytics</li>
-                                <li>Computer Vision Solutions</li>
-                                <li>NLP & Conversational AI</li>
-                                <li>AI for Social Good</li>
-                            </ul>
-                        </div>
+                        <h3 class="domain-title neon-text">Artificial Intelligence</h3>
+                        <p class="domain-description">Develop cutting-edge AI solutions that push the boundaries of machine learning, natural language processing, computer vision, and more. Create intelligent systems that can learn, adapt, and solve complex problems.</p>
+                        <ul class="domain-examples">
+                            <li>Generative AI Applications</li>
+                            <li>Predictive Analytics</li>
+                            <li>Computer Vision Solutions</li>
+                            <li>NLP & Conversational AI</li>
+                            <li>AI for Social Good</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="domain-card holographic-card card-hover-effect" data-domain="web3">
-                    <div class="domain-card-inner">
-                        <div class="domain-card-front">
-                            <div class="domain-icon floating-element">
-                                <img src="assets/images/web3-icon.svg" alt="Web3 Domain">
-                            </div>
-                            <h3 class="domain-title neon-text">Web3</h3>
-                            <div class="flip-prompt">Click to explore</div>
+                <div class="domain-card holographic-card" data-domain="web3">
+                    <div class="domain-card-content">
+                        <div class="domain-icon">
+                            <img src="assets/images/web3-icon.svg" alt="Web3 Domain">
                         </div>
-                        <div class="domain-card-back">
-                            <h3 class="domain-title neon-text">Web3</h3>
-                            <p class="domain-description">Build decentralized applications and services that leverage blockchain technology, smart contracts, and tokenomics. Create solutions that empower users with ownership, privacy, and control over their digital assets and identity.</p>
-                            <ul class="domain-examples">
-                                <li>DeFi Applications</li>
-                                <li>NFT Platforms</li>
-                                <li>DAO Governance Tools</li>
-                                <li>Decentralized Identity</li>
-                                <li>Web3 Social Platforms</li>
-                            </ul>
-                        </div>
+                        <h3 class="domain-title neon-text">Web3</h3>
+                        <p class="domain-description">Build decentralized applications and services that leverage blockchain technology, smart contracts, and tokenomics. Create solutions that empower users with ownership, privacy, and control over their digital assets and identity.</p>
+                        <ul class="domain-examples">
+                            <li>DeFi Applications</li>
+                            <li>NFT Platforms</li>
+                            <li>DAO Governance Tools</li>
+                            <li>Decentralized Identity</li>
+                            <li>Web3 Social Platforms</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -327,47 +309,48 @@
     <section id="prizes" class="prizes-section section-transition">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title glitch-text" data-text="Prizes & Rewards">Prizes & Rewards</h2>
+                <h2 class="section-title">Prizes & Rewards</h2>
                 <div class="section-divider"></div>
+                <div class="prize-pool">
+                    <h3 class="total-prize-pool">Total Prize Pool: ₹60,000 worth</h3>
+                </div>
             </div>
             <div class="prizes-container">
-                <div class="prize-card first holographic-card card-hover-effect">
-                    <div class="prize-medal floating-element">
+                <div class="prize-card first">
+                    <div class="prize-medal">
                         <img src="assets/images/first-prize.svg" alt="First Prize">
                     </div>
-                    <h3 class="prize-title neon-text">First Prize</h3>
-                    <div class="prize-amount glitch-text" data-text="$5,000">$5,000</div>
+                    <h3 class="prize-title">First Prize</h3>
+                    <div class="prize-amount">₹30,000</div>
                     <div class="prize-extras">
-                        <p>+ Mentorship Opportunities</p>
-                        <p>+ Incubation Support</p>
-                        <p>+ Exclusive NFT Badge</p>
+                        <p>+ Worth Gift Vouchers</p>
                     </div>
                 </div>
-                <div class="prize-card second holographic-card card-hover-effect">
-                    <div class="prize-medal floating-element">
+                <div class="prize-card second">
+                    <div class="prize-medal">
                         <img src="assets/images/second-prize.svg" alt="Second Prize">
                     </div>
-                    <h3 class="prize-title neon-text">Second Prize</h3>
-                    <div class="prize-amount glitch-text" data-text="$3,000">$3,000</div>
+                    <h3 class="prize-title">Second Prize</h3>
+                    <div class="prize-amount">₹20,000</div>
                     <div class="prize-extras">
-                        <p>+ Cloud Credits</p>
-                        <p>+ Development Resources</p>
-                        <p>+ Exclusive NFT Badge</p>
+                        <p>+ Worth Gift Vouchers</p>
                     </div>
                 </div>
-                <div class="prize-card third holographic-card card-hover-effect">
-                    <div class="prize-medal floating-element">
+                <div class="prize-card third">
+                    <div class="prize-medal">
                         <img src="assets/images/third-prize.svg" alt="Third Prize">
                     </div>
-                    <h3 class="prize-title neon-text">Third Prize</h3>
-                    <div class="prize-amount glitch-text" data-text="$1,500">$1,500</div>
+                    <h3 class="prize-title">Third Prize</h3>
+                    <div class="prize-amount">₹10,000</div>
                     <div class="prize-extras">
-                        <p>+ Premium Subscriptions</p>
-                        <p>+ Learning Resources</p>
-                        <p>+ Exclusive NFT Badge</p>
+                        <p>+ Worth Gift Vouchers</p>
                     </div>
                 </div>
             </div>
+            <div class="seed-funding-info">
+                    <h4>Special Opportunity</h4>
+                    <p>The best idea gets seed funding from Rathinam Group of Institutions.</p>
+                </div>
             <div class="special-prizes">
                 <h3>Special Category Awards</h3>
                 <div class="special-prizes-container">
@@ -376,22 +359,27 @@
                             <img src="assets/images/innovation-icon.svg" alt="Most Innovative">
                         </div>
                         <h4>Most Innovative Solution</h4>
-                        <p>$1,000 + Innovation Lab Access</p>
                     </div>
                     <div class="special-prize">
                         <div class="special-prize-icon">
                             <img src="assets/images/impact-icon.svg" alt="Social Impact">
                         </div>
                         <h4>Best Social Impact</h4>
-                        <p>$1,000 + Impact Partner Connections</p>
                     </div>
                     <div class="special-prize">
                         <div class="special-prize-icon">
                             <img src="assets/images/design-icon.svg" alt="Best Design">
                         </div>
                         <h4>Best UI/UX Design</h4>
-                        <p>$1,000 + Design Tool Licenses</p>
                     </div>
+                </div>
+            </div>
+            <div class="certificate-banner">
+                <div class="certificate-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-text">
+                    <p>All participants will receive verified e-certificates.</p>
                 </div>
             </div>
         </div>
@@ -420,8 +408,7 @@
                     <div class="faq-question">
                         <h3 class="neon-text">Who can participate in the hackathon?</h3>
                         <div class="faq-toggle floating-element">
-                            <span></span>
-                            <span></span>
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -432,8 +419,7 @@
                     <div class="faq-question">
                         <h3 class="neon-text">Is there a registration fee?</h3>
                         <div class="faq-toggle floating-element">
-                            <span></span>
-                            <span></span>
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -444,8 +430,7 @@
                     <div class="faq-question">
                         <h3 class="neon-text">What if I don't have a team?</h3>
                         <div class="faq-toggle floating-element">
-                            <span></span>
-                            <span></span>
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -455,9 +440,8 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3 class="neon-text">What should I bring to the hackathon?</h3>
-                        <div class="faq-toggle">
-                            <span></span>
-                            <span></span>
+                        <div class="faq-toggle floating-element">
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -467,9 +451,8 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3 class="neon-text">Can I start working on my project before the hackathon?</h3>
-                        <div class="faq-toggle">
-                            <span></span>
-                            <span></span>
+                        <div class="faq-toggle floating-element">
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -479,9 +462,8 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3 class="neon-text">How will projects be judged?</h3>
-                        <div class="faq-toggle">
-                            <span></span>
-                            <span></span>
+                        <div class="faq-toggle floating-element">
+                            <img src="assets/images/logo.png" alt="HBL Logo" class="faq-toggle-logo">
                         </div>
                     </div>
                     <div class="faq-answer">
@@ -576,7 +558,6 @@
     <script src="js/world-map.js"></script>
     <script src="js/scroll-effects.js"></script>
     <script src="js/background-particles.js"></script>
-    <script src="js/countdown-timer.js"></script>
     <script src="js/centered-countdown.js"></script>
     <script src="js/performance-optimizer.js"></script>
     <script src="js/image-slider.js"></script>

@@ -46,3 +46,18 @@ button {
     border: none;
     cursor: pointer;
 }
+
+/* Prevent focus on non-interactive elements */
+div:not([role="button"]):not([tabindex]), 
+span:not([role="button"]):not([tabindex]), 
+p:not([role="button"]):not([tabindex]) {
+    outline: none;
+}
+
+/* Prevent text selection on decorative elements */
+.decorative, .parallax-layer, .floating-element {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
