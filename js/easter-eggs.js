@@ -147,17 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Hidden URL Parameter Easter Egg
-        const urlParams = new URLSearchParams(window.location.search);
-        const secretCode = urlParams.get('secret');
-        
-        if (secretCode === 'hackathon') {
-            showEasterEgg('egg2');
-            
-            // Dispatch custom event for sound effect
-            document.dispatchEvent(new CustomEvent('easterEggFound'));
-        }
-        
         // Console Message Easter Egg
         console.log("%cHack Beyond Limits: Online Odyssey", "color: #00FFD1; font-size: 20px; font-weight: bold;");
         console.log("%cLooking for secrets? Try typing 'hackathon.revealSecrets()' below!", "color: #FF00C8;");

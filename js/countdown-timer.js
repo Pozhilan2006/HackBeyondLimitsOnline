@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add to body
         document.body.appendChild(countdownContainer);
         
-        // Set hackathon date (example: December 1, 2023)
-        const hackathonDate = new Date('December 1, 2023 10:00:00').getTime();
+        // Set hackathon date to August 5, 2025, 09:00 AM IST
+        const hackathonDate = new Date('August 5, 2025 09:00:00 GMT+0530').getTime();
         
         // Update countdown
         function updateCountdown() {

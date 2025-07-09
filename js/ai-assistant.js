@@ -136,8 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Check for keywords and return appropriate responses
             if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
                 addBotMessage("Hello! I'm your Hackathon Assistant for Hack Beyond Limits: Online Odyssey. How can I help you today?");
-            } else if (lowerMessage.includes('register') || lowerMessage.includes('sign up') || lowerMessage.includes('join')) {
-                addBotMessage("You can register for the hackathon by filling out the form in the 'Register Now' section. Early registrants will receive exclusive digital badges and priority access to mentorship sessions!");
             } else if (lowerMessage.includes('deadline') || lowerMessage.includes('last date')) {
                 addBotMessage("The registration deadline is one week before the hackathon starts. But I recommend registering early as spots fill up quickly and early registrants get special perks!");
             } else if (lowerMessage.includes('team') || lowerMessage.includes('partner') || lowerMessage.includes('group')) {
@@ -166,10 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 addBotMessage("Since this is an online event, you'll need a computer with a stable internet connection, any software you plan to use, and your creativity! Make sure you have a comfortable setup as you'll be coding for 48 hours. A webcam and microphone are recommended for team collaboration.");
             } else if (lowerMessage.includes('start') || lowerMessage.includes('begin') || lowerMessage.includes('when')) {
                 addBotMessage("The hackathon kicks off with an opening ceremony, followed by problem statement reveals and team formation. The actual coding begins at 1:00 PM on Day 1 and continues for 48 hours until the submission deadline at 1:00 PM on Day 3.");
-            } else if (lowerMessage.includes('easter egg') || lowerMessage.includes('secret')) {
-                addBotMessage("I might know about some hidden surprises on this website... Keep exploring, especially when scrolling, and try some keyboard combinations. The Konami code might reveal something special! 😉");
-            } else if (lowerMessage.includes('konami') || lowerMessage.includes('up up down down')) {
-                addBotMessage("Up, Up, Down, Down, Left, Right, Left, Right, B, A... Who knows what might happen if you try this? 🎮✨");
             } else {
                 // Default response for unrecognized queries
                 addBotMessage("I'm here to help with any questions about the Hack Beyond Limits hackathon. You can ask about registration, schedule, prizes, domains, team formation, or anything else related to the event. Is there something specific you'd like to know?");
@@ -184,10 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check for keywords and return appropriate responses
         if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
             return "Hello! I'm your Hackathon Assistant for Hack Beyond Limits: Online Odyssey. How can I help you today?";
-        }
-        
-        if (message.includes('register') || message.includes('sign up') || message.includes('join')) {
-            return "You can register for the hackathon by filling out the form in the 'Register Now' section. Early registrants will receive exclusive digital badges and priority access to mentorship sessions!";
         }
         
         if (message.includes('deadline') || message.includes('last date')) {
@@ -244,15 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (message.includes('start') || message.includes('begin') || message.includes('when')) {
             return "The hackathon kicks off with an opening ceremony, followed by problem statement reveals and team formation. The actual coding begins at 1:00 PM on Day 1 and continues for 48 hours until the submission deadline at 1:00 PM on Day 3.";
-        }
-        
-        // Easter egg responses
-        if (message.includes('easter egg') || message.includes('secret')) {
-            return "I might know about some hidden surprises on this website... Keep exploring, especially when scrolling, and try some keyboard combinations. The Konami code might reveal something special! 😉";
-        }
-        
-        if (message.includes('konami') || message.includes('up up down down')) {
-            return "Up, Up, Down, Down, Left, Right, Left, Right, B, A... Who knows what might happen if you try this? 🎮✨";
         }
         
         // Default response for unrecognized queries

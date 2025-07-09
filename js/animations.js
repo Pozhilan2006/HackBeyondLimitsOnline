@@ -36,15 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const typingText = document.querySelector('.typing-text');
         
         if (preloader && typingText) {
-            const text = "Initializing Hack Beyond Limits...";
+            const text = "Initializing Hack Beyond Limits Online Odyssey";
             typingText.textContent = "";
             
             let charIndex = 0;
-            const typingSpeed = 80; // milliseconds per character
+            const typingSpeed = 70; // milliseconds per character
             
             // Add cursor element
             const cursor = document.createElement('span');
             cursor.className = 'typing-cursor';
+            cursor.innerHTML = '_';
             typingText.parentNode.appendChild(cursor);
             
             // Typewriter effect
@@ -57,11 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Add flicker effect after typing completes
                     typingText.classList.add('flicker');
                     
-                    // Hide preloader after delay
+                    // Add blinking cursor effect
+                    setInterval(() => {
+                        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                    }, 500);
+                    
+                    // Hide preloader after extended delay to ensure users can read the text
                     setTimeout(() => {
                         gsap.to(preloader, {
                             opacity: 0,
-                            duration: 1,
+                            duration: 1.5,
                             onComplete: () => {
                                 preloader.style.display = 'none';
                                 
@@ -78,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             }
                         });
-                    }, 1000);
+                    }, 2500); // Extended delay to 2.5 seconds after typing completes
                 }
             }
             

@@ -247,3 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// TODO: Redesign world map with proper markings and clear layout.
+document.getElementById('world-map').innerHTML = '<div style="text-align:center;padding:2em;">New world map coming soon!</div>';
